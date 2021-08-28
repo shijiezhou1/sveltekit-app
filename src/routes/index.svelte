@@ -3,42 +3,27 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+	import { items } from './project/items';
+	import Prometheus from '$lib/Prometheus.svelte';
+	import IndexMeta from '$lib/IndexMeta.svelte';
+
+	let title: string = 'SHIJIE ZHOU | Home';
+	let newItem: any[] = items;
+
+	newItem = newItem.slice(0, 9);
+
+	function watchTitle() {
+		title = 'SHIJIE ZHOU | PORTFOLIO';
+	}
+
+	$: watchTitle();
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>{title}</title>
+	<IndexMeta />
 </svelte:head>
 
 <section>
-	<Counter />
+	<Prometheus items={newItem} />
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>

@@ -61,3 +61,7 @@ export enum title {
     cv='cv',
     about='about',
 }
+
+export const logoPath = "https://cdn.jsdelivr.net/gh/shijiezhou1/Artemis@master/img/logo-text.png";
+
+export const logoUrl = "https://www.shijiezhou.com";
